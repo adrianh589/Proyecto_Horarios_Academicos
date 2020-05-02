@@ -2,12 +2,21 @@
 
 require_once 'BaseModel.php';
 
+/**
+ * Class MatterModel
+ * @author Adrian Hoyos
+ */
 class MatterModel extends BaseModel {
 
-    private $name;
+    use HoursT;//Trait HoursT
+
+    private $nrc;
     private $alfanumeric;
-    private $days;
+    private $name;
     private $credits;
+    private $days = array();
+    private $program;
+    private $workday;
     private $modality;
 
     public function __construct()
@@ -15,84 +24,84 @@ class MatterModel extends BaseModel {
 
     }
 
-    /**
-     * @return mixed
-     */
+    public function getNrc()
+    {
+        return $this->nrc;
+    }
+
+    public function setNrc($nrc)
+    {
+        $this->nrc = $nrc;
+    }
+
     public function getName()
     {
         return $this->name;
     }
 
-    /**
-     * @param mixed $name
-     */
     public function setName($name)
     {
         $this->name = $name;
     }
 
-    /**
-     * @return mixed
-     */
     public function getAlfanumeric()
     {
         return $this->alfanumeric;
     }
 
-    /**
-     * @param mixed $alfanumeric
-     */
     public function setAlfanumeric($alfanumeric)
     {
         $this->alfanumeric = $alfanumeric;
     }
 
-    /**
-     * @return mixed
-     */
     public function getDays()
     {
         return $this->days;
     }
 
-    /**
-     * @param mixed $days
-     */
-    public function setDays($days)
+    public function setDays(DayModel $days)
     {
-        $this->days = $days;
+        array_push($this->days, $days);
     }
 
-    /**
-     * @return mixed
-     */
     public function getCredits()
     {
         return $this->credits;
     }
 
-    /**
-     * @param mixed $credits
-     */
     public function setCredits($credits)
     {
         $this->credits = $credits;
     }
 
-    /**
-     * @return mixed
-     */
     public function getModality()
     {
         return $this->modality;
     }
 
-    /**
-     * @param mixed $modality
-     */
     public function setModality($modality)
     {
         $this->modality = $modality;
+    }
+
+    public function getProgram()
+    {
+        return $this->program;
+    }
+
+    public function setProgram($program)
+    {
+        $this->program = $program;
+    }
+
+    public function getWorkday()
+    {
+        return $this->workday;
+    }
+
+    public function setWorkday($workday)
+    {
+        $this->workday = $workday;
     }
 
     public function consultByProgram()

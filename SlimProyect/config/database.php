@@ -1,6 +1,10 @@
 <?php
 
-
+/**
+ * Class database
+ * Class to connect to database.
+ * @author Adrian Hoyos
+ */
 class database
 {
 

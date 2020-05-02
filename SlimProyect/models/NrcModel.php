@@ -2,6 +2,10 @@
 
 require_once 'BaseModel.php';
 
+/**
+ * Class NrcModel
+ * @author Adrian Hoyos
+ */
 class NrcModel extends BaseModel {
 
     private $nrc;
@@ -11,17 +15,11 @@ class NrcModel extends BaseModel {
 
     }
 
-    /**
-     * @return mixed
-     */
     public function getNrc()
     {
         return $this->nrc;
     }
 
-    /**
-     * @param mixed $nrc
-     */
     public function setNrc($nrc)
     {
         $this->nrc = $nrc;

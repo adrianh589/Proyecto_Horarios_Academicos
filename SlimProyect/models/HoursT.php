@@ -14,6 +14,7 @@ trait HoursT {
         $this->finalHour = $finalHour;
     }
 
+    /*Getters and Setters*/
     public function getStartHour(){
         return $this->startHour;
     }
