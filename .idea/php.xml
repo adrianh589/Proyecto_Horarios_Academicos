@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="PhpIncludePathManager">
+    <include_path>
+      <path value="$PROJECT_DIR$/SlimProyect/vendor/psr/http-message" />
+      <path value="$PROJECT_DIR$/SlimProyect/vendor/psr/log" />
+      <path value="$PROJECT_DIR$/SlimProyect/vendor/slim/slim" />
+      <path value="$PROJECT_DIR$/SlimProyect/vendor/nikic/fast-route" />
+      <path value="$PROJECT_DIR$/SlimProyect/vendor/nyholm/psr7" />
+      <path value="$PROJECT_DIR$/SlimProyect/vendor/nyholm/psr7-server" />
+      <path value="$PROJECT_DIR$/SlimProyect/vendor/laminas/laminas-diactoros" />
+      <path value="$PROJECT_DIR$/SlimProyect/vendor/laminas/laminas-zendframework-bridge" />
+      <path value="$PROJECT_DIR$/SlimProyect/vendor/monolog/monolog" />
+      <path value="$PROJECT_DIR$/SlimProyect/vendor/symfony/dotenv" />
+      <path value="$PROJECT_DIR$/SlimProyect/vendor/php-http/message-factory" />
+      <path value="$PROJECT_DIR$/SlimProyect/vendor/ralouphie/getallheaders" />
+      <path value="$PROJECT_DIR$/SlimProyect/vendor/composer" />
+      <path value="$PROJECT_DIR$/SlimProyect/vendor/guzzlehttp/psr7" />
+      <path value="$PROJECT_DIR$/SlimProyect/vendor/http-interop/http-factory-guzzle" />
+      <path value="$PROJECT_DIR$/SlimProyect/vendor/psr/container" />
+      <path value="$PROJECT_DIR$/SlimProyect/vendor/psr/http-factory" />
+      <path value="$PROJECT_DIR$/SlimProyect/vendor/psr/http-server-middleware" />
+      <path value="$PROJECT_DIR$/SlimProyect/vendor/psr/http-server-handler" />
+    </include_path>
+  </component>
+  <component name="PhpProjectSharedConfiguration" php_language_level="7" />
+</project>
