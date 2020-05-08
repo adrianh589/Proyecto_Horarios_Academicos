@@ -2,6 +2,8 @@
 
 require_once '../src/config/database.php';
 
+use Proyect\src\config\database;
+
 /**
  * Class BaseModel
  * Skeleton class for the other classes

@@ -6,21 +6,35 @@
  */
 class NrcModel extends BaseModel {
 
-    private $nrc;
+    private $number;
+    private $active;
 
-    public function __construct()
+    public function __construct($number = null, $active = null)
     {
-
+        $this->setNumber($number);
+        $this->setNumber($active);
     }
 
-    public function getNrc()
+    public function getNumber()
     {
-        return $this->nrc;
+        return $this->number;
     }
 
-    public function setNrc($nrc)
+    public function setNumber($number)
     {
-        $this->nrc = $nrc;
+        $this->number = $number;
     }
+
+    public function getActive()
+    {
+        return $this->active;
+    }
+
+    public function setActive($active)
+    {
+        $this->active = $active;
+    }
+
+
 
 }

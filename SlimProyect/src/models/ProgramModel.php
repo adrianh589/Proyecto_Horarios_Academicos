@@ -4,6 +4,11 @@ class ProgramModel extends BaseModel {
 
     private $name;
 
+    public function __construct($name = null)
+    {
+        $this->setName($name);
+    }
+
     public function getName()
     {
         return $this->name;

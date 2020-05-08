@@ -15,7 +15,7 @@ class SubjectController {
         require_once '../src/test_subjects/test_subjects.php';
 
         //view
-        require_once '../src/views/matter/test.php';
+        require_once '../src/views/subject/test.php';
 
         return $result;
     }

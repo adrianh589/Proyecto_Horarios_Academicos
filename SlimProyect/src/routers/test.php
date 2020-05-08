@@ -25,21 +25,14 @@ $app->get('/test/schedule', function ($request, $response, $args) {
 /**
  * Route to test subject
  */
-$app->get('/test/subject', function ($request, $response, $args) {
-
+$app->get('/test/subjects', function ($request, $response, $args) {
     $result = SubjectController::test();
     return $response->withStatus(200)
         ->withHeader('Content-Type', 'application/json')
         ->write($result);
 });
 
-/**
- * Get all matters
- */
-$app->get('/matters', function ($request, $response, $args) {
-    $response->write("Hello, " . $args['name']);
-    return $response;
-});
+
 
 /**
  * Hello route

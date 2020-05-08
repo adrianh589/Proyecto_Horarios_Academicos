@@ -1,8 +1,8 @@
 <?php namespace Proyect\src\models\modelsDB;
 
-use Proyect\src\models\modelsDB\CRUD;
+use \Proyect\src\models\modelsDB\CRUD;
 
-class ScheduleDB implements CRUD{
+class ProgramDB implements CRUD {
 
     public function getById($id)
     {
@@ -14,14 +14,13 @@ class ScheduleDB implements CRUD{
         // TODO: Implement getAll() method.
     }
 
-    public function update($Schedule)
+    public function update($object)
     {
         // TODO: Implement update() method.
     }
 
-    public function delete($Schedule)
+    public function delete($object)
     {
         // TODO: Implement delete() method.
     }
-
 }

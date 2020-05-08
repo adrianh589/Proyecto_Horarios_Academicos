@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="PhpIncludePathManager">
+    <include_path>
+      <path value="$PROJECT_DIR$/SlimProyect/vendor/composer" />
+      <path value="$PROJECT_DIR$/SlimProyect/vendor/pimple/pimple" />
+      <path value="$PROJECT_DIR$/SlimProyect/vendor/nikic/fast-route" />
+      <path value="$PROJECT_DIR$/SlimProyect/vendor/slim/slim" />
+      <path value="$PROJECT_DIR$/SlimProyect/vendor/psr/http-message" />
+      <path value="$PROJECT_DIR$/SlimProyect/vendor/psr/container" />
+    </include_path>
+  </component>
+</project>

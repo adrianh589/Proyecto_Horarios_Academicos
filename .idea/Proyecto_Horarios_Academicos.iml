@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module type="WEB_MODULE" version="4">
+  <component name="NewModuleRootManager">
+    <content url="file://$MODULE_DIR$">
+      <excludeFolder url="file://$MODULE_DIR$/SlimProyect/vendor/composer" />
+      <excludeFolder url="file://$MODULE_DIR$/SlimProyect/vendor/nikic/fast-route" />
+      <excludeFolder url="file://$MODULE_DIR$/SlimProyect/vendor/pimple/pimple" />
+      <excludeFolder url="file://$MODULE_DIR$/SlimProyect/vendor/psr/container" />
+      <excludeFolder url="file://$MODULE_DIR$/SlimProyect/vendor/psr/http-message" />
+      <excludeFolder url="file://$MODULE_DIR$/SlimProyect/vendor/slim/slim" />
+    </content>
+    <orderEntry type="inheritedJdk" />
+    <orderEntry type="sourceFolder" forTests="false" />
+  </component>
+</module>

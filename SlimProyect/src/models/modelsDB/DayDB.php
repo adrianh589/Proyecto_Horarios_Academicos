@@ -1,9 +1,8 @@
 <?php namespace Proyect\src\models\modelsDB;
 
-use Proyect\src\models\modelsDB\CRUD;
+use \Proyect\src\models\modelsDB\CRUD;
 
-class SubjectDB implements CRUD
-{
+class DayDB implements CRUD{
 
     public function getById($id)
     {
@@ -12,18 +11,16 @@ class SubjectDB implements CRUD
 
     public function getAll()
     {
-        // TODO: Implement getAll() method.
+        //Create an object and return the result, easy
     }
 
     public function update($object)
     {
-        // TODO: Implement update() method.
+        //Create an object and return the result, easy
     }
 
     public function delete($object)
     {
-        // TODO: Implement delete() method.
+        //Create an object and return the result, easy
     }
-
-
 }
