@@ -3,7 +3,7 @@
 class ProgramModel extends BaseModel {
 
     private $name;
-
+ //Create an object and return the result, easy
     public function __construct($name = null)
     {
         $this->setName($name);

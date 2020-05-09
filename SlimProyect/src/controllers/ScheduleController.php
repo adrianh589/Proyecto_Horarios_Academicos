@@ -12,7 +12,7 @@ class ScheduleController {
     {
         require_once '../src/models/ScheduleModel.php';//Load model
         require_once '../src/models/modelsActions/ScheduleActions.php';//Load Actions
-        $result = ScheduleActions::generateAcademicsSchedules();//Controller action logic
+        $result = ScheduleActions::generateBoard("18:15","21:59");//Controller action logic
         return $result;//Send result to route
     }
 

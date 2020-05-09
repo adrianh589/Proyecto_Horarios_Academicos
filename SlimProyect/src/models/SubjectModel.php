@@ -82,11 +82,7 @@ class SubjectModel extends BaseModel implements JsonSerializable
         return $array;
     }
 
-    /**
-     * Metodo para meter los dias que tiene una materia
-     * @param $days Array with Objects of DayModel
-     */
-    public function setDays($days)//Recibe array of DayModels
+    public function setDays($days)//Receives array of DayModels
     {
         for ($i = 0; $i < count($days); $i++) {
             array_push($this->days, $days[$i]);
@@ -151,36 +147,6 @@ class SubjectModel extends BaseModel implements JsonSerializable
     public function setDescription($description)
     {
         $this->description = $description;
-    }
-
-    /**
-     * Function to register a matter in the server
-     * @param $subject Receives array to save subjects in the server in order of name
-     * @param $registeredSubjects
-     */
-    public static function registerSubject($subject)
-    {
-        if( !isset($_SESSION) ) {//If the session not exists
-            session_start();
-        }
-
-        $found = false;
-
-        if(!isset($_SESSION['subjects'])) {//Initialize an array in the session
-            $_SESSION['subjects'] = array(array($subject));
-        }else {
-            for ($i = 0; $i < count($_SESSION['subjects']); $i++) {
-                if ($_SESSION['subjects'][$i][0]->getName() === $subject->getName()) {
-                    array_push($_SESSION['subjects'][$i], $subject);
-                    $found = true;
-                    break;
-                }
-            }
-
-            if ($found == false) {
-                array_push($_SESSION['subjects'], array($subject));
-            }
-        }
     }
 
     public function jsonSerialize()

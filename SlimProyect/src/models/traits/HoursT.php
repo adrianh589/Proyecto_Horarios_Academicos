@@ -1,7 +1,5 @@
 <?php namespace Proyect\src\models\traits;
 
-use DateTime;
-
 /**
  * Trait HoursT
  * @author Adrian Hoyos
@@ -31,12 +29,6 @@ trait HoursT {
 
     public function setFinalHour($finalHour){
         $this->finalHour = $finalHour;
-    }
-
-    public static function convertToHours($hour){
-        $hour = DateTime::createFromFormat('!H:i',$hour);
-        $hour->format('H:i');
-        return $hour;
     }
 
 }

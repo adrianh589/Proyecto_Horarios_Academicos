@@ -2,17 +2,9 @@
 
 use Proyect\src\models\SubjectModel;
 use Proyect\src\models\DayModel;
-use Proyect\src\models\traits\HoursT;
-use Proyect\src\models\WorkDayModel;
-use Proyect\src\models\NrcModel;
-use Proyect\src\models\ProgramModel;
+use Proyect\src\models\modelsActions\SubjectActions;
+use Proyect\src\models\modelsActions\HoursActions;
 
-$subjects = array();
-
-session_start();
-if( isset($_SESSION['subjects']) ) {//If the session exists
-    unset($_SESSION['subjects']);
-}
 
 /************************ARQUITECTURA DE SOFTWARE********************************************/
 
@@ -22,13 +14,13 @@ $arq = new SubjectModel(
     "ISUM 8522",
     3,
     array(
-        new DayModel("lunes", HoursT::convertToHours("18:15"), HoursT::convertToHours("19:44")),
-        new DayModel("jueves", HoursT::convertToHours("20:30"), HoursT::convertToHours("21:59"))
+        new DayModel("lunes", HoursActions::convertToHours("18:15"), HoursActions::convertToHours("19:44")),
+        new DayModel("jueves", HoursActions::convertToHours("20:30"), HoursActions::convertToHours("21:59"))
     ),
     "Ingeneria de Sistemas",
     "Mañana",
     "Presencial");
-SubjectModel::registerSubject($arq);
+SubjectActions::saveSubject($arq);
 
 $arq2 = new SubjectModel(
     "Arquitectura de Software",
@@ -36,13 +28,13 @@ $arq2 = new SubjectModel(
     "ISUM 8522",
     3,
     array(
-        new DayModel("lunes", HoursT::convertToHours("20:30"), HoursT::convertToHours("21:59")),
-        new DayModel("jueves", HoursT::convertToHours("18:15"), HoursT::convertToHours("19:44"))
+        new DayModel("lunes", HoursActions::convertToHours("20:30"), HoursActions::convertToHours("21:59")),
+        new DayModel("jueves", HoursActions::convertToHours("18:15"), HoursActions::convertToHours("19:44"))
     ),
     "Ingeneria de Sistemas",
     "Mañana",
     "Presencial");
-SubjectModel::registerSubject($arq2);
+SubjectActions::saveSubject($arq2);
 
 $arq3 = new SubjectModel(
     "Arquitectura de Software",
@@ -50,13 +42,13 @@ $arq3 = new SubjectModel(
     "ISUM 8522",
     3,
     array(
-        new DayModel("miercoles", HoursT::convertToHours("20:30"), HoursT::convertToHours("21:59")),
-        new DayModel("viernes", HoursT::convertToHours("18:15"), HoursT::convertToHours("19:44"))
+        new DayModel("miercoles", HoursActions::convertToHours("20:30"), HoursActions::convertToHours("21:59")),
+        new DayModel("viernes", HoursActions::convertToHours("18:15"), HoursActions::convertToHours("19:44"))
     ),
     "Ingeneria de Sistemas",
     "Mañana",
     "Presencial");
-SubjectModel::registerSubject($arq3);
+SubjectActions::saveSubject($arq3);
 
 $arq4 = new SubjectModel(
     "Arquitectura de Software",
@@ -64,13 +56,13 @@ $arq4 = new SubjectModel(
     "ISUM 8522",
     3,
     array(
-        new DayModel("miercoles", HoursT::convertToHours("18:15"), HoursT::convertToHours("19:44")),
-        new DayModel("sabado", HoursT::convertToHours("20:30"), HoursT::convertToHours("21:59"))
+        new DayModel("miercoles", HoursActions::convertToHours("18:15"), HoursActions::convertToHours("19:44")),
+        new DayModel("sabado", HoursActions::convertToHours("20:30"), HoursActions::convertToHours("21:59"))
     ),
    "Ingeneria de Sistemas",
     "Mañana",
     "Presencial");
-SubjectModel::registerSubject($arq4);
+SubjectActions::saveSubject($arq4);
 /************************ARQUITECTURA DE SOFTWARE********************************************/
 
 /************************BASES DE DATOS MASIVAS********************************************/
@@ -81,13 +73,13 @@ $bdm = new SubjectModel(
     "ISUM 8522",
     3,
     array(
-        new DayModel("martes", HoursT::convertToHours("18:15"), HoursT::convertToHours("19:44")),
-        new DayModel("sabado", HoursT::convertToHours("21:15"), HoursT::convertToHours("21:59"))
+        new DayModel("martes", HoursActions::convertToHours("18:15"), HoursActions::convertToHours("19:44")),
+        new DayModel("sabado", HoursActions::convertToHours("21:15"), HoursActions::convertToHours("21:59"))
     ),
     "Ingeneria de Sistemas",
     "Mañana",
     "Presencial");
-SubjectModel::registerSubject($bdm);
+SubjectActions::saveSubject($bdm);
 
 $bdm2 = new SubjectModel(
     "Bases de datos masivas",
@@ -95,13 +87,13 @@ $bdm2 = new SubjectModel(
     "ISUM 8522",
     3,
     array(
-        new DayModel("martes", HoursT::convertToHours("20:30"), HoursT::convertToHours("21:59")),
-        new DayModel("viernes", HoursT::convertToHours("18:15"), HoursT::convertToHours("19:44"))
+        new DayModel("martes", HoursActions::convertToHours("20:30"), HoursActions::convertToHours("21:59")),
+        new DayModel("viernes", HoursActions::convertToHours("18:15"), HoursActions::convertToHours("19:44"))
     ),
     "Ingeneria de Sistemas",
     "Mañana",
     "Presencial");
-SubjectModel::registerSubject($bdm2);
+SubjectActions::saveSubject($bdm2);
 
 /************************BASES DE DATOS MASIVAS********************************************/
 
@@ -113,13 +105,13 @@ $dif = new SubjectModel(
     "ISUM 8522",
     3,
     array(
-        new DayModel("martes", HoursT::convertToHours("20:30"), HoursT::convertToHours("21:59")),
-        new DayModel("viernes", HoursT::convertToHours("20:30"), HoursT::convertToHours("21:59"))
+        new DayModel("martes", HoursActions::convertToHours("20:30"), HoursActions::convertToHours("21:59")),
+        new DayModel("viernes", HoursActions::convertToHours("20:30"), HoursActions::convertToHours("21:59"))
     ),
     "Ingeneria de Sistemas",
     "Noche",
     "Presencial");
-SubjectModel::registerSubject($dif);
+SubjectActions::saveSubject($dif);
 
 /*******************************************************************************************/
 
@@ -130,15 +122,17 @@ $edis = new SubjectModel(
     "ISUM 8522",
     3,
     array(
-        new DayModel("martes", HoursT::convertToHours("18:15"), HoursT::convertToHours("19:44")),
-        new DayModel("jueves", HoursT::convertToHours("20:30"), HoursT::convertToHours("21:59"))
+        new DayModel("martes", HoursActions::convertToHours("18:15"), HoursActions::convertToHours("19:44")),
+        new DayModel("jueves", HoursActions::convertToHours("20:30"), HoursActions::convertToHours("21:59"))
     ),
     "Ingeneria de Sistemas",
     "Mañana",
     "Presencial");
-SubjectModel::registerSubject($edis);
+SubjectActions::saveSubject($edis);
 /***************************************************************************************************************/
 
-var_dump($_SESSION['subjects']);
-
-die();
+if (session_destroy()) {
+    echo "Sesión destruida correctamente";
+} else {
+    echo "Error al destruir la sesión";
+}

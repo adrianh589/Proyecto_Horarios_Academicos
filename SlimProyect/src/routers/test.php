@@ -6,6 +6,9 @@ require_once '../src/models/autoload.php';
 //Automatically load controllers files
 require_once '../src/controllers/autoload.php';
 
+//Automatically load controllers files
+require_once '../src/models/modelsActions/autoload.php';
+
 use Proyect\src\controllers\ScheduleController;
 use Proyect\src\controllers\SubjectController;
 
