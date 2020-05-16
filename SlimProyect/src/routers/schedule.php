@@ -6,26 +6,26 @@
 ///**
 // * Get all schedules
 // */
-//$app->get('/schedules', function ($request, $response, $args) {
-//    $response->write("Hello, " . $args['name']);
-//    return $response;
+//$app->get('/schedules', function ($request, $answer, $args) {
+//    $answer->write("Hello, " . $args['name']);
+//    return $answer;
 //});
 //
 ///**
 // * Get schedules by id
 // */
-//$app->get('/schedules/{id}', function ($request, $response, $args) {
-//    $response->write("Hello, " . $args['name']);
-//    return $response;
+//$app->get('/schedules/{id}', function ($request, $answer, $args) {
+//    $answer->write("Hello, " . $args['name']);
+//    return $answer;
 //});
 //
 ///**
 // * Generate Schedules
 // */
-//$app->get('/schedules/possibilities', function ($request, $response, $args) {
+//$app->get('/schedules/possibilities', function ($request, $answer, $args) {
 //    $result = ScheduleController::generateAcademicsSchedules();
 //
-//    return $response->withStatus(200)
+//    return $answer->withStatus(200)
 //        ->withHeader('Content-Type', 'application/json')
 //        ->write($result);
 //});

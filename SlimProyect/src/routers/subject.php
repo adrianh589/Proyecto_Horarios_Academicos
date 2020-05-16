@@ -6,9 +6,9 @@
 ///**
 // * Get all subjects
 // */
-//$app->get('/subjects', function ($request, $response, $args) {
+//$app->get('/subjects', function ($request, $answer, $args) {
 //    $result = SubjectController::test();
-//    return $response->withStatus(200)
+//    return $answer->withStatus(200)
 //        ->withHeader('Content-Type', 'application/json')
 //        ->write($result); //La que me traia los JSON
 //});
@@ -16,15 +16,15 @@
 ///**
 // * Get subjects by id
 // */
-//$app->get('/subjects/{id}', function ($request, $response, $args) {
-//    $response->write("Hello, " . $args['name']);
-//    return $response;
+//$app->get('/subjects/{id}', function ($request, $answer, $args) {
+//    $answer->write("Hello, " . $args['name']);
+//    return $answer;
 //});
 //
 ///**
 // * Delete a subject
 // */
-//$app->delete('/subjects/{id}', function ($request, $response, $args) {
-//    $response->write("Hello, " . $args['name']);
-//    return $response;
+//$app->delete('/subjects/{id}', function ($request, $answer, $args) {
+//    $answer->write("Hello, " . $args['name']);
+//    return $answer;
 //});

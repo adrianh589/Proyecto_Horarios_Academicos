@@ -152,16 +152,16 @@ class SubjectModel extends BaseModel implements JsonSerializable
     public function jsonSerialize()
     {
         return array(
-            "name" => $this->getName(),
-            "nrc" => $this->getNrc(),
-            "alfanumeric" => $this->getAlfanumeric(),
-            "credits" => $this->getCredits(),
-            "days" => $this->getDays(),
-            "program" => $this->getProgram(),
-            "workday" => $this->getWorkday(),
-            "modality" => $this->getModality(),
-            "faculty" => $this->getFaculty(),
-            "description" => $this->getDescription()
+            "name"          => $this->getName()         ,
+            "nrc"           => $this->getNrc()          ,
+            "alfanumeric"   => $this->getAlfanumeric()  ,
+            "credits"       => $this->getCredits()      ,
+            "days"          => $this->getDays()         ,
+            "program"       => $this->getProgram()      ,
+            "workday"       => $this->getWorkday()      ,
+            "modality"      => $this->getModality()     ,
+            "faculty"       => $this->getFaculty()      ,
+            "description"   => $this->getDescription()
         );
     }
 }
