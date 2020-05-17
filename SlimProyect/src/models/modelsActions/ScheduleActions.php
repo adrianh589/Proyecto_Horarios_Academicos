@@ -5,19 +5,19 @@ use Proyect\src\models\modelsActions\HoursActions;
 use Proyect\src\models\modelsActions\SubjectActions;
 use Proyect\src\models\SubjectModel;
 
-
 class ScheduleActions
 {
 
     public static function generateAcademicSchedules()
     {
-        SubjectActions::destroySession("schedules");        //Destruir la sesion si existe
+        SubjectActions::destroySession("schedules");        //Destroy the session if exists
         SubjectActions::createSession("schedules");         //Session to schedule
-        $selectedSubjects = SubjectActions::buildSubjects();             //Test subjects
-        $board = self::generateBoard("18:15", "21:59");//Arreglar para que sea automático
-        self::buildPosibilities($board, 0, array());
-        var_dump($_SESSION);
-        session_destroy();                           //Unset all sessions
+        SubjectActions::buildSubjects();                                //Test subjects, load in the $_SESSION['subjects']
+        $hoursBoard = HoursActions::returnMinMaxHour();                 //
+        $board = self::generateBoard($hoursBoard[0], $hoursBoard[1]);   //Automatic range
+        self::buildPosibilities($board, 0, array());        //
+        var_dump($_SESSION['schedules']);
+        session_destroy();                                              //Unset all sessions
     }
 
     /**
@@ -29,33 +29,40 @@ class ScheduleActions
     private static function buildPosibilities(array $board, int $chosenSubject, array $tempSubjects): void
     {
         if ($chosenSubject == count($_SESSION['subjects'])) {//Base case
-            $assign = false;
-            $chosenSchedule = array();
 
-            for ($i = 0; $i < count($tempSubjects); $i++) {//iterar sobre la materia a elegirle los horarios
+            $assign = false;            //To verify if the subject is crossing
+            $chosenSchedule = array();  //Chosen schedule when all subjects have been tested
+            $boardToSchedule = array(); //To check whether or not a repeated schedule has been generated
 
-                $board = self::introduceSubjectInBoard($board, $tempSubjects[$i])[0];//La metemos de una al tablero
-                array_push($chosenSchedule, $tempSubjects[$i]);//Meter la primera materia para hacerle los horarios
+            for ($i = 0; $i < count($tempSubjects); $i++) {//Iterate on the chosen subjects
 
-                for ($j = 0; $j < count($tempSubjects); $j++) {//iterar sobre las materias que van a elegirse a la escogida
+                $board = self::introduceSubjectInBoard($board, $tempSubjects[$i])[0];//Put it on the board
+                array_push($chosenSchedule, $tempSubjects[$i]);//Choose the first subject to schedule
+
+                for ($j = 0; $j < count($tempSubjects); $j++) {//Iterate over the subjects to be chosen to the chosen one
                     if ($i !== $j) {
                         $result = self::introduceSubjectInBoard($board, $tempSubjects[$j]);
                         $assign = $result[1];
-                        if ($assign) {
+                        if ($assign) {//check if it was assigned to the schedule
                             $board = $result[0];
                             array_push($chosenSchedule, $tempSubjects[$j]);
                         }
                     }
                 }
 
+                if(!self::repeatedSchedule($boardToSchedule, $board)){//Verify that it is not a repeated schedule
+                    array_push($_SESSION['schedules'], $chosenSchedule);
+                    echo "<h3>Horario generado</h3>";
+                    self::printBoard($board);
+                }
 
-                array_push($_SESSION['schedules'], $chosenSchedule);
-                self::printBoard($board);
+                array_push($boardToSchedule, $board);//To verify if the schedule is not repeated
 
-
-                self::clearBoard($board);//limpiamos el tablero
-                $chosenSchedule = array();//limpiar la pila de nrcs
+                $board = self::clearBoard($board);
+                $chosenSchedule = array();
+                $assign = false;
             }
+
         } else {
             for ($subSubject = 0; $subSubject < count($_SESSION['subjects'][$chosenSubject]); $subSubject++) {
                 $subject = $_SESSION['subjects'][$chosenSubject][$subSubject];
@@ -195,30 +202,29 @@ class ScheduleActions
      *Function to clear the board
      * @param $schedule
      */
-    private static function clearBoard($schedule): void
+    private static function clearBoard($schedule): array
     {
         for ($i = 1; $i < count($schedule); $i++) {
             for ($j = 1; $j < count($schedule[0]); $j++) {
                 $schedule[$i][$j] = null;
             }
         }
+        return $schedule;
     }
 
     /**
-     * Fnction to verify if
-     * @param $chosenSchedule
+     * Funtion to avoid repeated schedules
+     * @param $board            Builded board
+     * @param $boardToSchedule  To verify if the schedule is not repeated
      * @return bool
      */
-    private static function repeatedSchedule($chosenSchedule): bool
+    private static function repeatedSchedule(array $boardToSchedule, array $board): bool
     {
-        echo json_encode($_SESSION['schedules'][0]);
-        die();
-        for ($i = 0; i < count($_SESSION['schedules']); $i++) {
-            if (json_encode($_SESSION['schedules'][$i]) === json_encode($chosenSchedule)) {
-                return true;
-            }
+        if(in_array($board, $boardToSchedule)){
+            return true;
+        }else{
+            return false;
         }
-        return false;
     }
 
 }

@@ -39,7 +39,6 @@ class HoursActions {
      */
     public static function generateRange($startHour, $finalHour)
     {
-
         $range = array();
         $startHourRange = self::convertToHours($startHour);
         $finalHourRange = self::convertToHours($finalHour);
@@ -51,6 +50,44 @@ class HoursActions {
             $startHourRange = (clone $startHourRange)->modify('+1 minutes');
         }
         return $range;
+    }
+
+    /**
+     * Function to return the min and max hours to generate the board
+     */
+    public static function returnMinMaxHour(): array
+    {
+        $minHour = self::convertToHours("23:59");
+        $maxHour = self::convertToHours("00:00");
+
+        for ($i = 0; $i < count($_SESSION['subjects']); $i++){//Iterate to subjects clasified
+            for ($j = 0; $j < count($_SESSION['subjects'][$i]); $j++){//Iterate to subjects with same name
+
+                $days = $_SESSION['subjects'][$i][$j]->getDays();//Get the days of the current subject
+
+                for ($k = 0; $k < count($days); $k++){//Iterate for the days of the subject
+
+                    $currentDay = $days[$k];
+
+                    $minHourSubject = self::convertToHours($currentDay['start_hour']);
+                    $maxHourSubject = self::convertToHours($currentDay['final_hour']);
+
+                    if ($minHourSubject < $minHour){
+
+                        $minHour = $minHourSubject;
+
+                    }
+
+                    if ($maxHourSubject > $maxHour){
+
+                        $maxHour = $maxHourSubject;
+
+                    }
+                }
+            }
+        }
+
+        return array($minHour->format('H:i'), $maxHour->format('H:i'));
     }
 
 }

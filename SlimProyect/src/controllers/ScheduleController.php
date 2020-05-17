@@ -12,8 +12,8 @@ class ScheduleController {
     {
         require_once '../src/models/ScheduleModel.php';//Load model
         require_once '../src/models/modelsActions/ScheduleActions.php';//Load Actions
-        //$result = ScheduleActions::generateBoard("18:15","21:59");//Controller action logic
-        $result = ScheduleActions::generateAcademicSchedules();
+        $result = ScheduleActions::generateAcademicSchedules();//Controller action logic
+        //Send to view
         return $result;//Send result to route
     }
 

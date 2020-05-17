@@ -39,15 +39,11 @@ class SubjectActions
      */
     public static function createSession($nameofsession)
     {
-        if( session_status() == PHP_SESSION_NONE  ) {//If the session not exists
-            session_start();
-        }
-
+        self::sessionStart();
         if(!isset($_SESSION["{$nameofsession}"])){
             $_SESSION["{$nameofsession}"] = array();
             return true;
         }
-
         return false;
     }
 
@@ -57,9 +53,7 @@ class SubjectActions
     public static function destroySession($nameofsession)
     {
         //Destroy the session if exists
-        if( session_status() == PHP_SESSION_NONE  ) {//If the session not exists
-            session_start();
-        }
+        self::sessionStart();
         if( isset($_SESSION["{$nameofsession}"]) ){
             unset($_SESSION["{$nameofsession}"] );
         }
@@ -196,7 +190,17 @@ class SubjectActions
             "Mañana",
             "Presencial");
         self::saveSubjectInSession($edis);
-
-        return $_SESSION['subjects'];
     }
+
+    /**
+     * Function to start session if not exists
+     */
+    public static function sessionStart()
+    {
+        if( session_status() == PHP_SESSION_NONE  ) {//If the session not exists
+            session_start();
+        }
+    }
+
+
 }
