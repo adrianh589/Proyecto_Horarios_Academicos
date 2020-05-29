@@ -4,9 +4,10 @@ use JsonSerializable;
 
 /**
  * Class SubjectModel
+ * @package Proyect\src\models
  * @author Adrian Hoyos
  */
-class SubjectModel extends BaseModel implements JsonSerializable
+class SubjectModel implements JsonSerializable
 {
     private $name;
     private $nrc;
@@ -15,56 +16,46 @@ class SubjectModel extends BaseModel implements JsonSerializable
     private $days = array();
     private $program;
     private $workday;
-    private $modality;
-    private $faculty;
-    private $description;
+    private $semester;
 
-    public function __construct($name = null, $nrc = null, $alfanumeric = null, $credits = null, $days = null, $program = null, $workday = null, $modality = null, $faculty = null, $description = null)
-    {
-        $this->setName($name);
-        $this->setNrc($nrc);
-        $this->setAlfanumeric($alfanumeric);
-        $this->setCredits($credits);
-        $this->setDays($days);
-        $this->setProgram($program);
-        $this->setWorkday($workday);
-        $this->setModality($modality);
-        $this->setFaculty($faculty);
-        $this->setDescription($description);
-    }
+//
+//    public function __construct($name = null, $nrc = null, $alfanumeric = null, $credits = null, $days = null, $program = null, $workday = null){
+//        $this->setName($name);
+//        $this->setNrc($nrc);
+//        $this->setAlfanumeric($alfanumeric);
+//        $this->setCredits($credits);
+//        $this->setDays($days);
+//        $this->setProgram($program);
+//        $this->setWorkday($workday);
+//    }
 
-    public function getNrc()
-    {
+    /*Getters and setters*/
+
+    public function getNrc(){
         return $this->nrc;
     }
 
-    public function setNrc($nrc)
-    {
+    public function setNrc($nrc){
         $this->nrc = $nrc;
     }
 
-    public function getName()
-    {
+    public function getName(){
         return $this->name;
     }
 
-    public function setName($name)
-    {
+    public function setName($name){
         $this->name = $name;
     }
 
-    public function getAlfanumeric()
-    {
+    public function getAlfanumeric(){
         return $this->alfanumeric;
     }
 
-    public function setAlfanumeric($alfanumeric)
-    {
+    public function setAlfanumeric($alfanumeric){
         $this->alfanumeric = $alfanumeric;
     }
 
-    public function getDays()
-    {
+    public function getDays(){
         $array = array();
         for ($i = 0; $i < count($this->days); $i++) {
 
@@ -72,9 +63,9 @@ class SubjectModel extends BaseModel implements JsonSerializable
 
                 array
                 (
-                    "name" => $this->days[$i]->getName(),
-                    "start_hour" => $this->days[$i]->getstartHour()->format('H:i'),
-                    "final_hour" => $this->days[$i]->getfinalHour()->format('H:i')
+                    "name"          => $this->days[$i]->getName(),
+                    "start_hour"    => $this->days[$i]->getstartHour()->format('H:i'),
+                    "final_hour"    => $this->days[$i]->getfinalHour()->format('H:i')
                 )
 
             );
@@ -82,75 +73,56 @@ class SubjectModel extends BaseModel implements JsonSerializable
         return $array;
     }
 
-    public function setDays($days)//Receives array of DayModels
-    {
+    /**
+     * @param $days array of DayModels
+     */
+    public function setDays($days){
         for ($i = 0; $i < count($days); $i++) {
             array_push($this->days, $days[$i]);
         }
     }
 
-    public function getCredits()
-    {
+    public function getCredits(){
         return $this->credits;
     }
 
-    public function setCredits($credits)
-    {
+    public function setCredits($credits){
         $this->credits = $credits;
     }
 
-    public function getModality()
-    {
-        return $this->modality;
-    }
-
-    public function setModality($modality)
-    {
-        $this->modality = $modality;
-    }
-
-    public function getProgram()
-    {
+    public function getProgram(){
         return $this->program;
     }
 
-    public function setProgram($program)
-    {
+    public function setProgram($program){
         $this->program = $program;
     }
 
-    public function getWorkday()
-    {
+    public function getWorkday(){
         return $this->workday;
     }
 
-    public function setWorkday($workday)
-    {
+    public function setWorkday($workday){
         $this->workday = $workday;
     }
 
-    public function getFaculty()
+    /**
+     * @return mixed
+     */
+    public function getSemester()
     {
-        return $this->faculty;
+        return $this->semester;
     }
 
-    public function setFaculty($faculty)
+    /**
+     * @param mixed $semester
+     */
+    public function setSemester($semester): void
     {
-        $this->faculty = $faculty;
+        $this->semester = $semester;
     }
 
-    public function getDescription()
-    {
-        return $this->description;
-    }
-
-    public function setDescription($description)
-    {
-        $this->description = $description;
-    }
-
-    public function jsonSerialize()
-    {
+    public function jsonSerialize(){
         return array(
             "name"          => $this->getName()         ,
             "nrc"           => $this->getNrc()          ,
@@ -158,10 +130,7 @@ class SubjectModel extends BaseModel implements JsonSerializable
             "credits"       => $this->getCredits()      ,
             "days"          => $this->getDays()         ,
             "program"       => $this->getProgram()      ,
-            "workday"       => $this->getWorkday()      ,
-            "modality"      => $this->getModality()     ,
-            "faculty"       => $this->getFaculty()      ,
-            "description"   => $this->getDescription()
+            "workday"       => $this->getWorkday()
         );
     }
 }

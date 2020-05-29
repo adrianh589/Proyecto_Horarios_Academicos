@@ -2,6 +2,11 @@
 
 use DateTime;
 
+/**
+ * Class HoursActions
+ * @package Proyect\src\models\modelsActions
+ * @author Adrian Hoyos
+ */
 class HoursActions {
 
     /**

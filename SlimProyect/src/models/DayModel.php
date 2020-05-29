@@ -1,35 +1,47 @@
 <?php namespace Proyect\src\models;
 
+use JsonSerializable;
 use Proyect\src\models\traits\HoursT;
-require_once '../src/models/traits/HoursT.php';
-
 
 /**
  * Class DayModel
+ * @package Proyect\src\models
  * @author Adrian Hoyos
  */
-class DayModel extends BaseModel {
+class DayModel implements JsonSerializable {
 
     use HoursT;//Trait for hours
 
+    private $id;
     private $name;
 
-    public function __construct($name, $startHour, $finalHour)
+    /*Getters and Setters*/
+
+    public function getId()
     {
-        $this->setName($name);
-        $this->setStartHour($startHour);
-        $this->setfinalHour($finalHour);
+        return $this->id;
     }
 
-    /*Getters and Setters*/
+    public function setId($id = null): void
+    {
+        $this->id = $id;
+    }
+
     public function getName()
     {
         return $this->name;
     }
 
-    public function setName($name)
+    public function setName($name = null)
     {
         $this->name = $name;
     }
 
+    public function jsonSerialize()
+    {
+       return array(
+           "id"     => $this->getId(),
+           "name"   => $this->getName()
+       );
+    }
 }

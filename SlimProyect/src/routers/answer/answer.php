@@ -8,10 +8,14 @@ class answer
 {
     public static function answer($action,Response $response){
         try {
-            return $response->withJson($action, 200);
+            return $response->withStatus(200)
+                            ->withHeader('Content-Type', 'application/json')
+                            ->write($action);
         }catch (Exception $e) {
             $error = array("message" => "Error in the request");
-            return $response->withJson($error, 500);
+            return $response->withStatus(500)
+                            ->withHeader('Content-Type', 'application/json')
+                            ->write($error);
         }
     }
 }

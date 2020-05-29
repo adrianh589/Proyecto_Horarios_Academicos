@@ -2,6 +2,11 @@
 
 use Proyect\src\models\modelsDB\CRUD;
 
+/**
+ * Class ScheduleDB
+ * @package Proyect\src\models\modelsDB
+ * @author Adrian Hoyos
+ */
 class ScheduleDB implements CRUD{
 
     public function getById($id)

@@ -1,19 +1,15 @@
 <?php namespace Proyect\src\models;
 
+use JsonSerializable;
+
 /**
  * Class NrcModel
+ * @package Proyect\src\models
  * @author Adrian Hoyos
  */
-class NrcModel extends BaseModel {
+class NrcModel implements JsonSerializable {
 
     private $number;
-    private $active;
-
-    public function __construct($number = null, $active = null)
-    {
-        $this->setNumber($number);
-        $this->setNumber($active);
-    }
 
     public function getNumber()
     {
@@ -25,16 +21,11 @@ class NrcModel extends BaseModel {
         $this->number = $number;
     }
 
-    public function getActive()
+
+    public function jsonSerialize()
     {
-        return $this->active;
+        return array(
+          "nrc" => $this->getNumber()
+        );
     }
-
-    public function setActive($active)
-    {
-        $this->active = $active;
-    }
-
-
-
 }

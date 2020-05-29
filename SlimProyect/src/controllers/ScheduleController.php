@@ -4,17 +4,17 @@ use Proyect\src\models\modelsActions\ScheduleActions;
 
 /**
  * Class ScheduleController
+ * @package Proyect\src\controllers
  * @author Adrian Hoyos
  */
 class ScheduleController {
 
     public static function generateAcademicSchedules()
     {
-        require_once '../src/models/ScheduleModel.php';//Load model
         require_once '../src/models/modelsActions/ScheduleActions.php';//Load Actions
-        $result = ScheduleActions::generateAcademicSchedules();//Controller action logic
-        //Send to view
-        return $result;//Send result to route
+        $schedules = ScheduleActions::generateAcademicSchedules();//Controller action logic
+        require_once '../src/views/schedule/generateAcademicSchedules.php';//Send to view
+        return $schedules;//Send result to route
     }
 
 }

@@ -1,23 +1,29 @@
 <?php namespace Proyect\src\controllers;
 
+use Proyect\src\models\modelsDB\SubjectDB;//Load model
+
 /**
  * Class SubjectController
+ * @package Proyect\src\controllers
  * @author Adrian Hoyos
  */
 class SubjectController {
 
-    public static function test()
+    /**
+     * Get all subjects from the database
+     * @return mixed
+     */
+    public static function getAll()
     {
-        //Load model
-        require_once "../src/models/SubjectModel.php";
-
-        //Load matters for test
-        require_once '../src/test_subjects/test_subjects.php';
-
-        //view
-        require_once '../src/views/subject/test.php';
-
+        $subjects = SubjectDB::getAll();//Controller action logic
+        require_once '../src/views/subject/getAll.php';//Send to view
         return $result;
+    }
+
+    //Get by alfanumeric
+    public static function getByNRC(string $nrc)
+    {
+
     }
 
 }

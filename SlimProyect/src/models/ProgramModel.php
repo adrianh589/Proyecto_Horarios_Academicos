@@ -1,12 +1,20 @@
 <?php namespace Proyect\src\models;
 
-class ProgramModel extends BaseModel {
+use JsonSerializable;
 
+class ProgramModel implements JsonSerializable {
+
+    private $id;
     private $name;
- //Create an object and return the result, easy
-    public function __construct($name = null)
+
+    public function getId()
     {
-        $this->setName($name);
+        return $this->id;
+    }
+
+    public function setId($id): void
+    {
+        $this->id = $id;
     }
 
     public function getName()
@@ -14,11 +22,17 @@ class ProgramModel extends BaseModel {
         return $this->name;
     }
 
-    public function setName($name)
+    public function setName($name): void
     {
         $this->name = $name;
     }
 
 
-
+    public function jsonSerialize()
+    {
+        return array(
+          "id"      => $this->getId()   ,
+          "name"    => $this->getName()
+        );
+    }
 }

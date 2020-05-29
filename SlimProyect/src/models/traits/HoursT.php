@@ -2,6 +2,7 @@
 
 /**
  * Trait HoursT
+ * @package Proyect\src\models\traits
  * @author Adrian Hoyos
  */
 trait HoursT {
@@ -9,10 +10,10 @@ trait HoursT {
     private $startHour;
     private $finalHour;
 
-    public function __construct($startHour, $finalHour){
-        $this->startHour = $startHour;
-        $this->finalHour = $finalHour;
-    }
+//    public function __construct($startHour, $finalHour){
+//        $this->startHour = $startHour;
+//        $this->finalHour = $finalHour;
+//    }
 
     /*Getters and Setters*/
     public function getStartHour(){

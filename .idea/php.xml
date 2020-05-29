@@ -8,6 +8,10 @@
       <path value="$PROJECT_DIR$/SlimProyect/vendor/slim/slim" />
       <path value="$PROJECT_DIR$/SlimProyect/vendor/psr/http-message" />
       <path value="$PROJECT_DIR$/SlimProyect/vendor/psr/container" />
+      <path value="$PROJECT_DIR$/SlimProyect/vendor/phpoffice/phpspreadsheet" />
+      <path value="$PROJECT_DIR$/SlimProyect/vendor/markbaker/complex" />
+      <path value="$PROJECT_DIR$/SlimProyect/vendor/markbaker/matrix" />
+      <path value="$PROJECT_DIR$/SlimProyect/vendor/psr/simple-cache" />
     </include_path>
   </component>
   <component name="PhpProjectSharedConfiguration" php_language_level="7.4" />

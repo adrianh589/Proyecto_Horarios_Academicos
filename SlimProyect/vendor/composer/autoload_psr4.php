@@ -7,7 +7,19 @@ $baseDir = dirname($vendorDir);
 
 return array(
     'Slim\\' => array($vendorDir . '/slim/slim/Slim'),
+    'Psr\\SimpleCache\\' => array($vendorDir . '/psr/simple-cache/src'),
     'Psr\\Http\\Message\\' => array($vendorDir . '/psr/http-message/src'),
     'Psr\\Container\\' => array($vendorDir . '/psr/container/src'),
+    'Proyect\\src\\routers\\answer\\' => array($baseDir . '/src/routers/answer'),
+    'Proyect\\src\\routers\\' => array($baseDir . '/src/routers'),
+    'Proyect\\src\\models\\traits\\' => array($baseDir . '/src/models/traits'),
+    'Proyect\\src\\models\\modelsDB\\' => array($baseDir . '/src/models/modelsDB'),
+    'Proyect\\src\\models\\modelsActions\\' => array($baseDir . '/src/models/modelsActions'),
+    'Proyect\\src\\models\\' => array($baseDir . '/src/models'),
+    'Proyect\\src\\controllers\\' => array($baseDir . '/src/controllers'),
+    'Proyect\\src\\config\\' => array($baseDir . '/src/config'),
+    'PhpOffice\\PhpSpreadsheet\\' => array($vendorDir . '/phpoffice/phpspreadsheet/src/PhpSpreadsheet'),
+    'Matrix\\' => array($vendorDir . '/markbaker/matrix/classes/src'),
     'FastRoute\\' => array($vendorDir . '/nikic/fast-route/src'),
+    'Complex\\' => array($vendorDir . '/markbaker/complex/classes/src'),
 );

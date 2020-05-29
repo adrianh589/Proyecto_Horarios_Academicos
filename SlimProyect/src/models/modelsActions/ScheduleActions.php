@@ -5,6 +5,11 @@ use Proyect\src\models\modelsActions\HoursActions;
 use Proyect\src\models\modelsActions\SubjectActions;
 use Proyect\src\models\SubjectModel;
 
+/**
+ * Class ScheduleActions
+ * @package Proyect\src\models\modelsActions
+ * @author Adrian Hoyos
+ */
 class ScheduleActions
 {
 
@@ -15,9 +20,9 @@ class ScheduleActions
         SubjectActions::buildSubjects();                                //Test subjects, load in the $_SESSION['subjects']
         $hoursBoard = HoursActions::returnMinMaxHour();                 //
         $board = self::generateBoard($hoursBoard[0], $hoursBoard[1]);   //Automatic range
-        self::buildPosibilities($board, 0, array());        //
-        var_dump($_SESSION['schedules']);
-        session_destroy();                                              //Unset all sessions
+        $schedules = self::buildPosibilities($board, 0, array());
+        return $schedules;
+        //var_dump($schedules);
     }
 
     /**
@@ -26,7 +31,7 @@ class ScheduleActions
      * @param int $chosenSubject Value to choose a general subject (No sub subjects)
      * @param array $tempSubjects Empty array to temporarily store materials
      */
-    private static function buildPosibilities(array $board, int $chosenSubject, array $tempSubjects): void
+    private static function buildPosibilities(array $board, int $chosenSubject, array $tempSubjects): array
     {
         if ($chosenSubject == count($_SESSION['subjects'])) {//Base case
 
@@ -52,8 +57,8 @@ class ScheduleActions
 
                 if(!self::repeatedSchedule($boardToSchedule, $board)){//Verify that it is not a repeated schedule
                     array_push($_SESSION['schedules'], $chosenSchedule);
-                    echo "<h3>Horario generado</h3>";
-                    self::printBoard($board);
+//                    echo "<h3>Horario generado</h3>";
+//                    self::printBoard($board);
                 }
 
                 array_push($boardToSchedule, $board);//To verify if the schedule is not repeated
@@ -71,6 +76,7 @@ class ScheduleActions
                 array_pop($tempSubjects);
             }
         }
+        return $_SESSION['schedules'];
     }
 
     /**
@@ -131,7 +137,7 @@ class ScheduleActions
     }
 
     /**
-     * Function to verify the crossing of a matter VERIFICAR
+     * Function to verify the crossing of a matter
      * @param $board    Board template
      * @param $subject  Subject to check if there is crossing
      * @return bool     True if the subject is crossing otherwise false
@@ -162,7 +168,7 @@ class ScheduleActions
     }
 
     /**
-     * Function to return the current day in the board VERIFICAR
+     * Function to return the current day in the board
      * @param $board                Board template
      * @param $nameOfCurrentDay     The name of the current date
      * @return int
@@ -191,7 +197,7 @@ class ScheduleActions
         $emptySchedule = array();
         for ($i = 0; $i < count($range); $i++) {
             if ($i == 0) {
-                array_push($emptySchedule, array("hora", "lunes", "martes", "miercoles", "jueves", "viernes", "sabado", "virtual"));//Introducing names of days
+                array_push($emptySchedule, array("HORA", "LUNES", "MARTES", "MIÉRCOLES", "JUEVES", "VIERNES", "SÁBADO", "VIRTUAL"));//Introducing names of days
             }
             array_push($emptySchedule, array($range[$i]->format('H:i'), null, null, null, null, null, null, null));
         }

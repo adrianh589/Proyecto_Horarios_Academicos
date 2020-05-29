@@ -2,11 +2,25 @@
 <module type="WEB_MODULE" version="4">
   <component name="NewModuleRootManager">
     <content url="file://$MODULE_DIR$">
+      <sourceFolder url="file://$MODULE_DIR$/SlimProyect/src/routers/answer" isTestSource="false" packagePrefix="Proyect\src\routers\answer\" />
+      <sourceFolder url="file://$MODULE_DIR$/tests" isTestSource="true" />
+      <sourceFolder url="file://$MODULE_DIR$/SlimProyect/src/models/traits" isTestSource="false" packagePrefix="Proyect\src\models\traits\" />
+      <sourceFolder url="file://$MODULE_DIR$/SlimProyect/src/config" isTestSource="false" packagePrefix="Proyect\src\config\" />
+      <sourceFolder url="file://$MODULE_DIR$/SlimProyect/src/models" isTestSource="false" packagePrefix="Proyect\src\models\" />
+      <sourceFolder url="file://$MODULE_DIR$/spec" isTestSource="true" />
+      <sourceFolder url="file://$MODULE_DIR$/SlimProyect/src/controllers" isTestSource="false" packagePrefix="Proyect\src\controllers\" />
+      <sourceFolder url="file://$MODULE_DIR$/SlimProyect/src/routers" isTestSource="false" packagePrefix="Proyect\src\routers\" />
+      <sourceFolder url="file://$MODULE_DIR$/SlimProyect/src/models/modelsActions" isTestSource="false" packagePrefix="Proyect\src\models\modelsActions\" />
+      <sourceFolder url="file://$MODULE_DIR$/SlimProyect/src/models/modelsDB" isTestSource="false" packagePrefix="Proyect\src\models\modelsDB\" />
       <excludeFolder url="file://$MODULE_DIR$/SlimProyect/vendor/composer" />
+      <excludeFolder url="file://$MODULE_DIR$/SlimProyect/vendor/markbaker/complex" />
+      <excludeFolder url="file://$MODULE_DIR$/SlimProyect/vendor/markbaker/matrix" />
       <excludeFolder url="file://$MODULE_DIR$/SlimProyect/vendor/nikic/fast-route" />
+      <excludeFolder url="file://$MODULE_DIR$/SlimProyect/vendor/phpoffice/phpspreadsheet" />
       <excludeFolder url="file://$MODULE_DIR$/SlimProyect/vendor/pimple/pimple" />
       <excludeFolder url="file://$MODULE_DIR$/SlimProyect/vendor/psr/container" />
       <excludeFolder url="file://$MODULE_DIR$/SlimProyect/vendor/psr/http-message" />
+      <excludeFolder url="file://$MODULE_DIR$/SlimProyect/vendor/psr/simple-cache" />
       <excludeFolder url="file://$MODULE_DIR$/SlimProyect/vendor/slim/slim" />
     </content>
     <orderEntry type="inheritedJdk" />
