@@ -4,6 +4,11 @@ use Exception;
 use Proyect\src\config\Database;
 use Proyect\src\models\NrcModel;
 
+/**
+ * Class NrcDB
+ * @package Proyect\src\models\modelsDB
+ * @author Adrian Hoyos
+ */
 class NrcDB implements CRUD{
 
     /**
@@ -32,7 +37,7 @@ class NrcDB implements CRUD{
      * @param $id
      * @return mixed
      */
-    public static function getById($id)
+    public static function getBy($id)
     {
         $nrc = new NrcModel();
         try {

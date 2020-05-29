@@ -23,7 +23,7 @@ class DayDB implements CRUD{
 
             $conn = Database::getConnection();
             $stmt = $conn->query("SELECT id_dias, nombre FROM DIAS;");
-            while ($row = $stmt->fetch()){
+            while ($row = $stmt->fetch($conn::FETCH_ASSOC)){
                 $day = new DayModel();
                 $day->setId($row['id_dias']);
                 $day->setName($row['nombre']);
@@ -40,7 +40,7 @@ class DayDB implements CRUD{
      * @param $nrc
      * @return array
      */
-    public static function getByNRC($nrc)
+    public static function getBy($nrc)
     {
         $days = array();
         try {

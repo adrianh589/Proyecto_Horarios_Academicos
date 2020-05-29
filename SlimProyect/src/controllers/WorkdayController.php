@@ -23,10 +23,10 @@ class WorkdayController
     /**
      * Get workday by id
      */
-    public static function getById($id)
+    public static function getBy($id)
     {
-        $workday = WorkdayDB::getById($id);//Controller action logic
-        require_once '../src/views/workday/getByNRC.php';//Send to view
+        $workday = WorkdayDB::getBy($id);//Controller action logic
+        require_once '../src/views/workday/getBy.php';//Send to view
         return $result;
     }
 

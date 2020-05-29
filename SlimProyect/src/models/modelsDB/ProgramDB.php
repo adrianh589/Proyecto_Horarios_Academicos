@@ -3,7 +3,6 @@
 use Exception;
 use \Proyect\src\models\modelsDB\CRUD;
 use Proyect\src\config\Database;
-use Proyect\src\models\PeriodModel;
 use Proyect\src\models\ProgramModel;
 
 /**
@@ -39,7 +38,7 @@ class ProgramDB implements CRUD {
      * @param $id
      * @return mixed
      */
-    public static function getById($id)
+    public static function getBy($id)
     {
         $program = new ProgramModel();
         try {

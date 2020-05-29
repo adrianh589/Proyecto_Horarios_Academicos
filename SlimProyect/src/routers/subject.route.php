@@ -15,7 +15,7 @@ $app->get('/subjects', function ($request, $response, $args) {
  * Route to get subject by nrc
  */
 $app->get('/subjects/{nrc}', function ($request, $response, $args) {
-    $action = SubjectController::getByNRC($args['nrc']);
+    $action = SubjectController::getBy($args['nrc']);
     return answer::answer($action, $response);
 });
 

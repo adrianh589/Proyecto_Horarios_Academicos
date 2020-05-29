@@ -19,10 +19,10 @@ class ProgramController
     /**
      * Get Program by id
      */
-    public static function getById($id)
+    public static function getBy($id)
     {
-        $program = ProgramDB::getById($id);//Controller action logic
-        require_once '../src/views/program/getByNRC.php';//Send to view
+        $program = ProgramDB::getBy($id);//Controller action logic
+        require_once '../src/views/program/getBy.php';//Send to view
         return $result;
     }
 

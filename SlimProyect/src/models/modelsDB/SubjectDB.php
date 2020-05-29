@@ -48,7 +48,7 @@ class SubjectDB implements CRUD
                 $subject->setNrc($row['nrc']);
                 $subject->setAlfanumeric($row['alfanumerico']);
                 $subject->setCredits($row['creditos']);
-                $subject->setDays(DayDB::getByNRC($subject->getNrc()));
+                $subject->setDays(DayDB::getBy($subject->getNrc()));
                 $subject->setProgram($row['programa']);
                 $subject->setWorkday($row['jornada']);
                 $subject->setSemester($row['semestre']);
@@ -65,7 +65,7 @@ class SubjectDB implements CRUD
      * Get subject by nrc
      * @param $nrc
      */
-    public static function getById($nrc)
+    public static function getBy($nrc)
     {
         $subject = new SubjectModel();
         try {
@@ -97,7 +97,7 @@ class SubjectDB implements CRUD
                 $subject->setNrc($row['nrc']);
                 $subject->setAlfanumeric($row['alfanumerico']);
                 $subject->setCredits($row['creditos']);
-                $subject->setDays(DayDB::getByNRC($subject->getNrc()));
+                $subject->setDays(DayDB::getBy($subject->getNrc()));
                 $subject->setProgram($row['programa']);
                 $subject->setWorkday($row['jornada']);
                 $subject->setSemester($row['semestre']);

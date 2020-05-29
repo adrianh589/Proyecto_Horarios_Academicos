@@ -24,10 +24,10 @@ class SubjectController {
      * Get subject by id
      * @param $nrc
      */
-    public static function getByNRC($nrc)
+    public static function getBy($nrc)
     {
-        $subject = SubjectDB::getById($nrc);//Controller action logic
-        require_once '../src/views/subject/getByNRC.php';//Send to view
+        $subject = SubjectDB::getBy($nrc);//Controller action logic
+        require_once '../src/views/subject/getBy.php';//Send to view
         return $result;
     }
 

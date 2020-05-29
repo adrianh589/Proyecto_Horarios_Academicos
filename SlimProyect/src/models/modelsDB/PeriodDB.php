@@ -4,8 +4,12 @@ use Exception;
 use Proyect\src\config\Database;
 use Proyect\src\models\PeriodModel;
 
-class PeriodDB implements CRUD
-{
+/**
+ * Class PeriodDB
+ * @package Proyect\src\models\modelsDB
+ * @author Adrian Hoyos
+ */
+class PeriodDB implements CRUD{
 
     public static function getAll()
     {
@@ -31,7 +35,7 @@ class PeriodDB implements CRUD
      * @param $id
      * @return mixed
      */
-    public static function getById($id)
+    public static function getBy($id)
     {
         $period = new PeriodModel();
         try {

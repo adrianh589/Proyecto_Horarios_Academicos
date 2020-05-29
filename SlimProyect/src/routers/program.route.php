@@ -15,7 +15,7 @@ $app->get('/programs', function ($request, $response, $args) {
  * Route to get a program by id
  */
 $app->get('/programs/{id}', function ($request, $response, $args) {
-    $action = ProgramController::getById($args['id']);
+    $action = ProgramController::getBy($args['id']);
     return answer::answer($action, $response);
 });
 

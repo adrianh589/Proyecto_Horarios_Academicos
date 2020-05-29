@@ -19,10 +19,10 @@ class NrcController
     /**
      * Get nrc by id
      */
-    public static function getById($id)
+    public static function getBy($id)
     {
-        $nrc = NrcDB::getById($id);//Controller action logic
-        require_once '../src/views/nrc/getByNRC.php';//Send to view
+        $nrc = NrcDB::getBy($id);//Controller action logic
+        require_once '../src/views/nrc/getBy.php';//Send to view
         return $result;
     }
 

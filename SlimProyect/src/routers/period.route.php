@@ -15,7 +15,7 @@ $app->get('/periods', function ($request, $response, $args) {
  * Route to get a period by id
  */
 $app->get('/periods/{id}', function ($request, $response, $args) {
-    $action = PeriodController::getById($args['id']);
+    $action = PeriodController::getBy($args['id']);
     return answer::answer($action, $response);
 });
 

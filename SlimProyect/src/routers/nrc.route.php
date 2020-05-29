@@ -15,7 +15,7 @@ $app->get('/nrcs', function ($request, $response, $args) {
  * Route to get a nrc by id
  */
 $app->get('/nrcs/{id}', function ($request, $response, $args) {
-    $action = NrcController::getById($args['id']);
+    $action = NrcController::getBy($args['id']);
     return answer::answer($action, $response);
 });
 

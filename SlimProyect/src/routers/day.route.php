@@ -15,7 +15,7 @@ $app->get('/days', function ($request, $response, $args) {
  * Route to get a day by id
  */
 $app->get('/days/{nrc}', function ($request, $response, $args) {
-    $action = DayController::getByNRC($args['nrc']);
+    $action = DayController::getBy($args['nrc']);
     return answer::answer($action, $response);
 });
 

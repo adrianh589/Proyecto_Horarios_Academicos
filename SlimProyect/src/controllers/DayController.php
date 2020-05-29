@@ -18,10 +18,10 @@ class DayController
     /**
      * Get days by nrc
      */
-    public static function getByNRC($id)
+    public static function getBy($id)
     {
-        $days = DayDB::getByNRC($id);//Controller action logic
-        require_once '../src/views/day/getByNRC.php';//Send to view
+        $days = DayDB::getBy($id);//Controller action logic
+        require_once '../src/views/day/getBy.php';//Send to view
         return $result;
     }
 

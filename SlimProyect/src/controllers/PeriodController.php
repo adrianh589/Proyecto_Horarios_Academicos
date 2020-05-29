@@ -23,10 +23,10 @@ class PeriodController
     /**
      * Get Program by id
      */
-    public static function getById($id)
+    public static function getBy($id)
     {
-        $period = PeriodDB::getById($id);//Controller action logic
-        require_once '../src/views/period/getByNRC.php';//Send to view
+        $period = PeriodDB::getBy($id);//Controller action logic
+        require_once '../src/views/period/getBy.php';//Send to view
         return $result;
     }
 

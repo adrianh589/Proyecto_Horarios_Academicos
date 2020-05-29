@@ -35,7 +35,7 @@ class WorkdayDB implements CRUD{
      * @param $id
      * @return mixed
      */
-    public static function getById($id)
+    public static function getBy($id)
     {
         $workday = new WorkdayModel();
         try {
@@ -52,11 +52,6 @@ class WorkdayDB implements CRUD{
             $conn = null;//Close connection
         }catch (Exception $e){echo $e->getMessage();}
         return $workday;
-    }
-
-    public function update($object)
-    {
-        // TODO: Implement update() method.
     }
 
     /**

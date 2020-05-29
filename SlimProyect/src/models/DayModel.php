@@ -42,8 +42,17 @@ class DayModel implements JsonSerializable {
        return array(
            "id"         => $this->getId()       ,
            "name"       => $this->getName()     ,
-           "start_hour" => $this->getStartHour()->format('H:i'),
-           "final_hour" => $this->getFinalHour()->format('H:i')
        );
+    }
+
+
+    public function jsonSerializeClass()
+    {
+        return array(
+            "id"         => $this->getId()       ,
+            "name"       => $this->getName()     ,
+            "start_hour" => $this->getStartHour()->format('H:i'),
+            "final_hour" => $this->getFinalHour()->format('H:i')
+        );
     }
 }
