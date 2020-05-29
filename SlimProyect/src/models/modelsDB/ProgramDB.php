@@ -3,6 +3,7 @@
 use \Proyect\src\models\modelsDB\CRUD;
 use Proyect\src\config\Database;
 use Proyect\src\models\PeriodModel;
+use Proyect\src\models\ProgramModel;
 
 /**
  * Class ProgramDB
@@ -13,28 +14,32 @@ class ProgramDB implements CRUD {
 
     public static function getAll()
     {
+        $programs = array();
         try {
-            $programs = array();
             $conn = Database::getConnection();
             $stmt = $conn->query(" SELECT id_programas, nombre FROM PROGRAMAS;");
             while ($row = $stmt->fetch()){
-                $period = new PeriodModel();
-                $period->setId($row['id_programas']);
-                $period->setName($row['nombre']);
-                array_push($programs, $period);
+                $program = new ProgramModel();
+                $program->setId($row['id_programas']);
+                $program->setName($row['nombre']);
+                array_push($programs, $program);
             }
             $conn = null;//Close connection
-            return $programs;
         }catch (Exception $e){echo $e->getMessage();}
+        return $programs;
     }
 
-    public function update($object)
+    /**
+     * Delete a program by id
+     */
+    public static function delete($id)
     {
-        // TODO: Implement update() method.
-    }
-
-    public function delete($object)
-    {
-        // TODO: Implement delete() method.
+        $status = false;
+        try {
+            $conn = Database::getConnection();
+            $status = $stmt = $conn->exec("DELETE FROM PROGRAMAS WHERE id_programas = '$id'");
+            $conn = null;//Close connection
+        }catch (Exception $e){echo $e->getMessage();}
+        return $status;
     }
 }

@@ -7,12 +7,22 @@ class ProgramController
 {
 
     /**
-     * Get all periods
+     * Get all Programs
      */
     public static function getAll()
     {
-        $periods = ProgramDB::getAll();//Controller action logic
-        require_once '../src/views/period/getAll.php';//Send to view
+        $programs = ProgramDB::getAll();//Controller action logic
+        require_once '../src/views/program/getAll.php';//Send to view
+        return $result;
+    }
+
+    /**
+     * Delete a period by id
+     */
+    public static function delete($id)
+    {
+        $status = ProgramDB::delete($id);//Controller action logic
+        require_once '../src/views/program/delete.php';//Send to view
         return $result;
     }
 

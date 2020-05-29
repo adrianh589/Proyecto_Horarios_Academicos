@@ -15,4 +15,14 @@ class WorkdayController
         return $result;
     }
 
+    /**
+     * Delete a nrc by id
+     */
+    public static function delete($id)
+    {
+        $status = WorkdayDB::delete($id);//Controller action logic
+        require_once '../src/views/workday/delete.php';
+        return $result;
+    }
+
 }

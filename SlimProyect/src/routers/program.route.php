@@ -10,3 +10,11 @@ $app->get('/programs', function ($request, $response, $args) {
     $action = ProgramController::getAll();
     return answer::answer($action, $response);
 });
+
+/**
+ * Route to delete a program by id
+ */
+$app->delete('/programs/{id}', function ($request, $response, $args) {
+    $action = ProgramController::delete($args['id']);
+    return answer::answer($action, $response);
+});

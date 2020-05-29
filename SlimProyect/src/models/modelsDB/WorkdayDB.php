@@ -38,8 +38,17 @@ class WorkdayDB implements CRUD{
         // TODO: Implement update() method.
     }
 
-    public function delete($object)
+    /**
+     * Delete a workday by id
+     */
+    public static function delete($id)
     {
-        // TODO: Implement delete() method.
+        $status = false;
+        try {
+            $conn = Database::getConnection();
+            $status = $stmt = $conn->exec("DELETE FROM JORNADAS WHERE id_jornadas = $id");
+            $conn = null;//Close connection
+        }catch (Exception $e){echo $e->getMessage();}
+        return $status;
     }
 }
