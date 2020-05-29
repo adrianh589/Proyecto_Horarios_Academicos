@@ -17,6 +17,16 @@ class NrcController
     }
 
     /**
+     * Get nrc by id
+     */
+    public static function getById($id)
+    {
+        $nrc = NrcDB::getById($id);//Controller action logic
+        require_once '../src/views/nrc/getByNRC.php';//Send to view
+        return $result;
+    }
+
+    /**
      * Delete a nrc by id
      */
     public static function delete($id)

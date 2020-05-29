@@ -2,6 +2,11 @@
 
 use Proyect\src\models\modelsDB\WorkdayDB;//Load model
 
+/**
+ * Class WorkdayController
+ * @package Proyect\src\controllers
+ * @author Adrian Hoyos
+ */
 class WorkdayController
 {
 
@@ -12,6 +17,16 @@ class WorkdayController
     {
         $workdays = WorkdayDB::getAll();//Controller action logic
         require_once '../src/views/workday/getAll.php';//Send to view
+        return $result;
+    }
+
+    /**
+     * Get workday by id
+     */
+    public static function getById($id)
+    {
+        $workday = WorkdayDB::getById($id);//Controller action logic
+        require_once '../src/views/workday/getByNRC.php';//Send to view
         return $result;
     }
 

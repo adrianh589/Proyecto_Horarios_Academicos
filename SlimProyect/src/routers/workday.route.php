@@ -12,6 +12,14 @@ $app->get('/workdays', function ($request, $response, $args) {
 });
 
 /**
+ * Route to get a workday by id
+ */
+$app->get('/workdays/{id}', function ($request, $response, $args) {
+    $action = WorkdayController::getById($args['id']);
+    return answer::answer($action, $response);
+});
+
+/**
  * Route to delete a nrc by id
  */
 $app->delete('/workdays/{id}', function ($request, $response, $args) {

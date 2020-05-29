@@ -9,6 +9,7 @@ use JsonSerializable;
  */
 class SubjectModel implements JsonSerializable
 {
+    private $id;
     private $name;
     private $nrc;
     private $alfanumeric;
@@ -17,6 +18,8 @@ class SubjectModel implements JsonSerializable
     private $program;
     private $workday;
     private $semester;
+
+
 
 //
 //    public function __construct($name = null, $nrc = null, $alfanumeric = null, $credits = null, $days = null, $program = null, $workday = null){
@@ -29,7 +32,19 @@ class SubjectModel implements JsonSerializable
 //        $this->setWorkday($workday);
 //    }
 
+
+
     /*Getters and setters*/
+
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    public function setId($id): void
+    {
+        $this->id = $id;
+    }
 
     public function getNrc(){
         return $this->nrc;
@@ -124,6 +139,7 @@ class SubjectModel implements JsonSerializable
 
     public function jsonSerialize(){
         return array(
+            "id"            => $this->getId()           ,
             "name"          => $this->getName()         ,
             "nrc"           => $this->getNrc()          ,
             "alfanumeric"   => $this->getAlfanumeric()  ,

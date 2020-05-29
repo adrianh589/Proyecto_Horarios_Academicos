@@ -17,6 +17,16 @@ class ProgramController
     }
 
     /**
+     * Get Program by id
+     */
+    public static function getById($id)
+    {
+        $program = ProgramDB::getById($id);//Controller action logic
+        require_once '../src/views/program/getByNRC.php';//Send to view
+        return $result;
+    }
+
+    /**
      * Delete a period by id
      */
     public static function delete($id)

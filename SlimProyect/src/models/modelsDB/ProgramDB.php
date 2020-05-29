@@ -1,5 +1,6 @@
 <?php namespace Proyect\src\models\modelsDB;
 
+use Exception;
 use \Proyect\src\models\modelsDB\CRUD;
 use Proyect\src\config\Database;
 use Proyect\src\models\PeriodModel;
@@ -12,6 +13,10 @@ use Proyect\src\models\ProgramModel;
  */
 class ProgramDB implements CRUD {
 
+    /**
+     * Get all programs
+     * @return array with programs
+     */
     public static function getAll()
     {
         $programs = array();
@@ -27,6 +32,30 @@ class ProgramDB implements CRUD {
             $conn = null;//Close connection
         }catch (Exception $e){echo $e->getMessage();}
         return $programs;
+    }
+
+    /**
+     * Get program by id
+     * @param $id
+     * @return mixed
+     */
+    public static function getById($id)
+    {
+        $program = new ProgramModel();
+        try {
+            $conn = Database::getConnection();
+            $stmt = $conn->query(" SELECT id_programas, nombre FROM PROGRAMAS WHERE id_programas = '$id';");
+
+            if ($row = $stmt->fetch($conn::FETCH_ASSOC)){
+                $program->setId($row['id_programas']);
+                $program->setName($row['nombre']);
+            }else{
+                return array("message" => "This id does not exists");
+            }
+
+            $conn = null;//Close connection
+        }catch (Exception $e){echo $e->getMessage();}
+        return $program;
     }
 
     /**

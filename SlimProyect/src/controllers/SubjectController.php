@@ -20,10 +20,28 @@ class SubjectController {
         return $result;
     }
 
-    //Get by alfanumeric
-    public static function getByNRC(string $nrc)
+    /**
+     * Get subject by id
+     * @param $nrc
+     */
+    public static function getByNRC($nrc)
     {
-
+        $subject = SubjectDB::getById($nrc);//Controller action logic
+        require_once '../src/views/subject/getByNRC.php';//Send to view
+        return $result;
     }
+
+    /**
+     * Delete a subject with id
+     * @param $id
+     */
+    public static function delete($id)
+    {
+        $status = SubjectDB::delete($id);//Controller action logic
+        require_once '../src/views/subject/delete.php';//Send to view
+        return $result;
+    }
+
+
 
 }

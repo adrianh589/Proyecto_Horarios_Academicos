@@ -1,5 +1,6 @@
 <?php namespace Proyect\src\models\modelsDB;
 
+use Exception;
 use \Proyect\src\models\modelsDB\CRUD;
 use Proyect\src\config\Database;
 use Proyect\src\models\WorkdayModel;
@@ -11,15 +12,10 @@ use Proyect\src\models\WorkdayModel;
  */
 class WorkdayDB implements CRUD{
 
-    public function getById($id)
-    {
-        //Create an object and return the result, easy
-    }
-
     public static function getAll()
     {
+        $workdays = array();
         try {
-            $workdays = array();
             $conn = Database::getConnection();
             $stmt = $conn->query(" SELECT id_jornadas, nombre FROM JORNADAS;");
             while ($row = $stmt->fetch()){
@@ -29,8 +25,33 @@ class WorkdayDB implements CRUD{
                 array_push($workdays, $workday);
             }
             $conn = null;//Close connection
-            return $workdays;
+
         }catch (Exception $e){echo $e->getMessage();}
+        return $workdays;
+    }
+
+    /**
+     * Get workday by id
+     * @param $id
+     * @return mixed
+     */
+    public static function getById($id)
+    {
+        $workday = new WorkdayModel();
+        try {
+            $conn = Database::getConnection();
+            $stmt = $conn->query(" SELECT id_jornadas, nombre FROM JORNADAS WHERE id_jornadas = $id;");
+
+            if ($row = $stmt->fetch($conn::FETCH_ASSOC)){
+                $workday->setId($row['id_jornadas']);
+                $workday->setName($row['nombre']);
+            }else{
+                return array("message" => "This id does not exists");
+            }
+
+            $conn = null;//Close connection
+        }catch (Exception $e){echo $e->getMessage();}
+        return $workday;
     }
 
     public function update($object)

@@ -18,8 +18,9 @@ class DayDB implements CRUD{
      */
     public static function getAll()
     {
+        $days = array();
         try {
-            $days = array();
+
             $conn = Database::getConnection();
             $stmt = $conn->query("SELECT id_dias, nombre FROM DIAS;");
             while ($row = $stmt->fetch()){
@@ -29,8 +30,9 @@ class DayDB implements CRUD{
                 array_push($days, $day);
             }
             $conn = null;//Close connection
-            return $days;
+
         }catch (Exception $e){echo $e->getMessage();}
+        return $days;
     }
 
     /**
@@ -40,11 +42,13 @@ class DayDB implements CRUD{
      */
     public static function getByNRC($nrc)
     {
+        $days = array();
         try {
-            $days = array();
             $conn = Database::getConnection();
             $stmt = $conn->query(" 
-                    SELECT D.nombre, 
+                    SELECT 
+                           D.id_dias,
+                           D.nombre, 
                            TIME_FORMAT(C.hora_inicio, '%H:%i') AS hora_inicio
                           ,TIME_FORMAT(C.hora_final, '%H:%i') AS hora_final
                     FROM NRCS AS N
@@ -53,14 +57,31 @@ class DayDB implements CRUD{
                     WHERE N.id_nrcs = $nrc
                     ;");
 
-            while ($row = $stmt->fetch()) {
+            while ($row = $stmt->fetch($conn::FETCH_ASSOC)) {
                 $day = new DayModel();
+                $day->setId($row['id_dias']);
                 $day->setName($row['nombre']);
                 $day->setStartHour(HoursActions::convertToHours($row['hora_inicio']));
                 $day->setFinalHour(HoursActions::convertToHours($row['hora_final']));
                 array_push($days, $day);
             }
-            return $days;
-        }catch (Exception $e){echo $e->getMessage();};
+        }catch (Exception $e){echo $e->getMessage();}
+        return $days;
     }
+
+    /**
+     * Delete a day by id
+     */
+    public static function delete($id)
+    {
+        $status = false;
+        try {
+            $conn = Database::getConnection();
+            $status = $stmt = $conn->exec("DELETE FROM DIAS WHERE id_dias = $id");
+            $conn = null;//Close connection
+        }catch (Exception $e){echo $e->getMessage();}
+        return $status;
+    }
+
+
 }

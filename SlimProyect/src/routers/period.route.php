@@ -11,6 +11,14 @@ $app->get('/periods', function ($request, $response, $args) {
     return answer::answer($action, $response);
 });
 
+/**
+ * Route to get a period by id
+ */
+$app->get('/periods/{id}', function ($request, $response, $args) {
+    $action = PeriodController::getById($args['id']);
+    return answer::answer($action, $response);
+});
+
 
 /**
  * Route to get delete a period by id

@@ -21,6 +21,17 @@ class PeriodController
     }
 
     /**
+     * Get Program by id
+     */
+    public static function getById($id)
+    {
+        $period = PeriodDB::getById($id);//Controller action logic
+        require_once '../src/views/period/getByNRC.php';//Send to view
+        return $result;
+    }
+
+
+    /**
      * Delete a period by id
      * @param $id
      * @return mixed

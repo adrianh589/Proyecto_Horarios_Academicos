@@ -15,4 +15,25 @@ class DayController
         return $result;
     }
 
+    /**
+     * Get days by nrc
+     */
+    public static function getByNRC($id)
+    {
+        $days = DayDB::getByNRC($id);//Controller action logic
+        require_once '../src/views/day/getByNRC.php';//Send to view
+        return $result;
+    }
+
+    /**
+     * Delete a day by id
+     * @param $id of day
+     */
+    public static function delete($id)
+    {
+        $status = DayDB::delete($id);
+        require_once '../src/views/day/delete.php';
+        return $result;
+    }
+
 }

@@ -9,8 +9,8 @@ class PeriodDB implements CRUD
 
     public static function getAll()
     {
+        $periods = array();
         try {
-            $periods = array();
             $conn = Database::getConnection();
             $stmt = $conn->query("SELECT id_periodos, nombre FROM PERIODOS");
 
@@ -21,18 +21,33 @@ class PeriodDB implements CRUD
                 array_push($periods, $period);
             }
             $conn = null;//Close connection
-            return $periods;
+
         }catch (Exception $e){echo $e->getMessage();}
+        return $periods;
     }
 
-    public function getById($id)
+    /**
+     * Get period by id
+     * @param $id
+     * @return mixed
+     */
+    public static function getById($id)
     {
+        $period = new PeriodModel();
+        try {
+            $conn = Database::getConnection();
+            $stmt = $conn->query(" SELECT id_periodos, nombre  FROM PERIODOS WHERE id_periodos = $id;");
 
-    }
+            if ($row = $stmt->fetch($conn::FETCH_ASSOC)){
+                $period->setId($row['id_periodos']);
+                $period->setName($row['nombre']);
+            }else{
+                return array("message" => "This id does not exists");
+            }
 
-    public function update($object)
-    {
-        // TODO: Implement update() method.
+            $conn = null;//Close connection
+        }catch (Exception $e){echo $e->getMessage();}
+        return $period;
     }
 
     /**

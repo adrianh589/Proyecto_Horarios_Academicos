@@ -1,6 +1,6 @@
 <?php namespace Proyect\src\routers\answer;
 
-use Proyect\src\controllers\ScheduleController;
+use Exception;
 use Slim\Http\Response;
 
 
