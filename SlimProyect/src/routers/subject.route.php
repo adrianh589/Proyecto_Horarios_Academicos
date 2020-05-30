@@ -12,6 +12,14 @@ $app->get('/subjects', function ($request, $response, $args) {
 });
 
 /**
+ * Route to get all semesters
+ */
+$app->get('/subjects/semesters', function ($request, $response, $args) {
+    $action = SubjectController::getSemesters();
+    return answer::answer($action, $response);
+});
+
+/**
  * Route to get subject by nrc
  */
 $app->get('/subjects/{nrc}', function ($request, $response, $args) {

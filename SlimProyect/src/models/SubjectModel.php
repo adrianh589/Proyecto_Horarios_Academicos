@@ -121,17 +121,11 @@ class SubjectModel implements JsonSerializable
         $this->workday = $workday;
     }
 
-    /**
-     * @return mixed
-     */
     public function getSemester()
     {
         return $this->semester;
     }
 
-    /**
-     * @param mixed $semester
-     */
     public function setSemester($semester): void
     {
         $this->semester = $semester;
@@ -146,7 +140,15 @@ class SubjectModel implements JsonSerializable
             "credits"       => $this->getCredits()      ,
             "days"          => $this->getDays()         ,
             "program"       => $this->getProgram()      ,
-            "workday"       => $this->getWorkday()
+            "workday"       => $this->getWorkday()      ,
+            "semester"      => $this->getSemester()
+        );
+    }
+
+    public function jsonSerializeSemesters()
+    {
+        return array(
+            "semester" => $this->getSemester()
         );
     }
 }

@@ -62,6 +62,26 @@ class SubjectDB implements CRUD
     }
 
     /**
+     * Get semesters
+     * @return array
+     */
+    public static function getSemesters()
+    {
+        $semesters = array();
+        try {
+            $conn = Database::getConnection();
+            $stmt = $conn->query("SELECT semestre FROM MATERIAS GROUP BY semestre;");
+            while ($row = $stmt->fetch()){
+                $semester = new SubjectModel();
+                $semester->setSemester($row['semestre']);
+                array_push($semesters, $semester);
+            }
+            $conn = null;//Close connection
+        }catch (Exception $e){echo $e->getMessage();}
+        return $semesters;
+    }
+
+    /**
      * Get subject by nrc
      * @param $nrc
      */

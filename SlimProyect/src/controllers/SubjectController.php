@@ -21,6 +21,16 @@ class SubjectController {
     }
 
     /**
+     * Get all semesters
+     */
+    public static function getSemesters()
+    {
+        $semesters = SubjectDB::getSemesters();//Controller action logic
+        require_once '../src/views/subject/getSemesters.php';//Send to view
+        return $result;
+    }
+
+    /**
      * Get subject by id
      * @param $nrc
      */
