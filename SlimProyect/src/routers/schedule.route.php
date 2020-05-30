@@ -9,8 +9,7 @@ use Proyect\src\routers\answer\answer;//Load answer
 $app->post('/schedules', function ($request, $response, $args) {
 
     $parseBody = json_decode($request->getBody(), true);
-    //$action = ScheduleController::generateAcademicSchedules($parseBody['schedules']);
-    $action = ScheduleController::generateAcademicSchedules(array("ISUMBG083"));
+    $action = ScheduleController::generateAcademicSchedules($parseBody['schedules']);
     return answer::answer($action, $response);
 
 });

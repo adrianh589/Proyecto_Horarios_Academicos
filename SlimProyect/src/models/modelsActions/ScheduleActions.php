@@ -61,6 +61,8 @@ class ScheduleActions
 //                    self::printBoard($board);
                 }
 
+//                die();
+
                 array_push($boardToSchedule, $board);//To verify if the schedule is not repeated
 
                 $board = self::clearBoard($board);

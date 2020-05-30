@@ -155,7 +155,7 @@ class SubjectModel implements JsonSerializable
             "alfanumeric"   => $this->getAlfanumeric()  ,
             "days"          => $this->getDays()         ,
             "program"       => $this->getProgram()      ,
-            "workday"       => $this->getSemester()     ,
+            "workday"       => $this->getWorkday()      ,
             "credits"       => $this->getCredits()      ,
             "semester"      => $this->getSemester()
         );

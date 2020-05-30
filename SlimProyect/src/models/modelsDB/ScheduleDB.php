@@ -20,7 +20,7 @@ class ScheduleDB
      */
     public static function buildSubjects(array $subjectsPOST): void
     {
-        SubjectActions::destroySession("subjects");//Destroy session if exists
+        //SubjectActions::destroySession("subjects");//Destroy session if exists
         try {
             $connection = Database::getConnection();//Connect to data base
 
@@ -42,7 +42,7 @@ class ScheduleDB
                         INNER JOIN MATERIAS M ON PM.id_materias = M.id_materias
                         INNER JOIN NRCS N ON M.id_materias = N.id_materias
                         INNER JOIN JORNADAS J ON N.id_jornadas = J.id_jornadas
-                        WHERE P.id_programas = '$subjectsPOST[$i]'
+                        WHERE M.id_materias = '$subjectsPOST[$i]'
                         ORDER BY M.nombre, N.id_nrcs;");
 
                 while ($row = $stmt->fetch($connection::FETCH_ASSOC)) {
