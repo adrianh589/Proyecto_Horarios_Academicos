@@ -22,7 +22,7 @@ class ProgramDB implements CRUD {
         try {
             $conn = Database::getConnection();
             $stmt = $conn->query(" SELECT id_programas, nombre FROM PROGRAMAS;");
-            while ($row = $stmt->fetch()){
+            while ($row = $stmt->fetch($conn::FETCH_ASSOC)){
                 $program = new ProgramModel();
                 $program->setId($row['id_programas']);
                 $program->setName($row['nombre']);
@@ -55,6 +55,30 @@ class ProgramDB implements CRUD {
             $conn = null;//Close connection
         }catch (Exception $e){echo $e->getMessage();}
         return $program;
+    }
+
+    /**
+     * Get program by id
+     * @param $idPeriod
+     * @return mixed
+     */
+    public static function getByPeriod($idPeriod)
+    {
+        $programs = array();
+        try {
+            $conn = Database::getConnection();
+            $stmt = $conn->query("SELECT id_programas, nombre FROM PROGRAMAS WHERE id_periodos = $idPeriod;");
+
+            while ($row = $stmt->fetch($conn::FETCH_ASSOC)){
+                $program = new ProgramModel();
+                $program->setId($row['id_programas']);
+                $program->setName($row['nombre']);
+                array_push($programs, $program);
+            }
+
+            $conn = null;//Close connection
+        }catch (Exception $e){echo $e->getMessage();}
+        return $programs;
     }
 
     /**

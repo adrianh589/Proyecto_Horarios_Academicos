@@ -20,6 +20,14 @@ $app->get('/programs/{id}', function ($request, $response, $args) {
 });
 
 /**
+ * Route to get a program by idPeriod
+ */
+$app->get('/programs/periods/{idPeriod}', function ($request, $response, $args) {
+    $action = ProgramController::getByPeriod($args['idPeriod']);
+    return answer::answer($action, $response);
+});
+
+/**
  * Route to delete a program by id
  */
 $app->delete('/programs/{id}', function ($request, $response, $args) {
