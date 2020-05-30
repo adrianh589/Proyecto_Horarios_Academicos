@@ -115,6 +115,40 @@ class SubjectDB implements CRUD
     }
 
     /**
+     * Get subject by nrc
+     * @param $idPeriod
+     */
+    public static function getByProgram($idProgram)
+    {
+        $subjects = array();
+        try {
+            $conn = Database::getConnection();
+            $stmt = $conn->query("
+            SELECT 
+                   M.id_materias AS id, 
+                   M.nombre AS materia,
+                   M.creditos AS creditos,
+                   M.semestre AS semestre
+            FROM PROGRAMAS_MATERIAS PM 
+                LEFT JOIN PROGRAMAS P ON PM.id_programas = P.id_programas 
+                LEFT JOIN PERIODOS PED ON (PM.id_periodos = PED.id_periodos) 
+                LEFT JOIN MATERIAS M ON M.id_materias = PM.id_materias 
+                WHERE PM.id_programas = '$idProgram'");
+
+            while($row = $stmt->fetch($conn::FETCH_ASSOC)){
+                $subject = new SubjectModel();
+                $subject->setId($row['id']);
+                $subject->setName($row['materia']);
+                $subject->setCredits($row['creditos']);
+                $subject->setSemester($row['semestre']);
+                array_push($subjects, $subject);
+            }
+            $conn = null;//Close connection
+        }catch (Exception $e){echo $e->getMessage();}
+        return $subjects;
+    }
+
+    /**
      * Delete a subject by id
      */
     public static function delete($id)

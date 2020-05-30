@@ -2,7 +2,13 @@
 
 require '../vendor/autoload.php';
 
-$app = new Slim\App();
+$configuration = [
+    'settings' => [
+        'displayErrorDetails' => true,
+    ],
+];
+$c = new \Slim\Container($configuration);
+$app = new Slim\App($c);
 
 // Automatically load routers files
 require_once '../src/routers/autoload.php';

@@ -12,4 +12,14 @@ $app->get('/schedules', function ($request, $response, $args) {//Falta
     session_destroy();  //Unset all sessions
 });
 
+/**
+ * Route to
+ */
+$app->post('/schedules', function ($request, $response, $args) {
+    $parseBody = array("");
+    $action = ScheduleController::generateAcademicSchedules();
+    return answer::answer($action, $response);
+    session_destroy();  //Unset all sessions
+});
+
 

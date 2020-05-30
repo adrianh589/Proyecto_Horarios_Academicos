@@ -42,6 +42,19 @@ class SubjectController {
     }
 
     /**
+     * Get subject by period
+     * @param $nrc
+     */
+    public static function getByProgram($idProgram)
+    {
+        $subjects = SubjectDB::getByProgram($idProgram);//Controller action logic
+        require_once '../src/views/subject/getByProgram.php';//Send to view
+        return $result;
+    }
+
+
+
+    /**
      * Delete a subject with id
      * @param $id
      */
