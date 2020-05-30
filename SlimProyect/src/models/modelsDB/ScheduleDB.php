@@ -9,6 +9,14 @@ use Proyect\src\models\modelsDB\CRUD;
  */
 class ScheduleDB{
 
-
+    /**
+     * Function to build subjects
+     */
+    public static function buildSubjects()
+    {
+        self::destroySession("subjects");
+        $arq = new SubjectModel();
+        self::saveSubjectInSession($arq);
+    }
 
 }

@@ -2,6 +2,11 @@
 
 use Proyect\src\models\modelsDB\DayDB;//Load model
 
+/**
+ * Class DayController
+ * @package Proyect\src\controllers
+ * @author Adrian Hoyos
+ */
 class DayController
 {
 

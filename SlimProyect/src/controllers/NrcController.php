@@ -3,6 +3,11 @@
 
 use Proyect\src\models\modelsDB\NrcDB;
 
+/**
+ * Class NrcController
+ * @package Proyect\src\controllers
+ * @author Adrian Hoyos
+ */
 class NrcController
 {
 

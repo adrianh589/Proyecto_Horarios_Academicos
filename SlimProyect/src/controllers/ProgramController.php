@@ -2,7 +2,11 @@
 
 use Proyect\src\models\modelsDB\ProgramDB;//Load model
 
-
+/**
+ * Class ProgramController
+ * @package Proyect\src\controllers
+ * @author Adrian Hoyos
+ */
 class ProgramController
 {
 

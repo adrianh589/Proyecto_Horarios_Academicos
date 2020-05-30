@@ -10,7 +10,6 @@ $app->get('/schedules', function ($request, $response, $args) {//Falta
     $action = ScheduleController::generateAcademicSchedules();
     return answer::answer($action, $response);
     session_destroy();  //Unset all sessions
-
 });
 
 

@@ -135,12 +135,7 @@ class SubjectModel implements JsonSerializable
         return array(
             "id"            => $this->getId()           ,
             "name"          => $this->getName()         ,
-            "nrc"           => $this->getNrc()          ,
-            "alfanumeric"   => $this->getAlfanumeric()  ,
             "credits"       => $this->getCredits()      ,
-            "days"          => $this->getDays()         ,
-            "program"       => $this->getProgram()      ,
-            "workday"       => $this->getWorkday()      ,
             "semester"      => $this->getSemester()
         );
     }

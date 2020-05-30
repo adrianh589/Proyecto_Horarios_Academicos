@@ -18,11 +18,10 @@ class ScheduleActions
         SubjectActions::destroySession("schedules");        //Destroy the session if exists
         SubjectActions::createSession("schedules");         //Session to schedule
         SubjectActions::buildSubjects();                                //Test subjects, load in the $_SESSION['subjects']
-        $hoursBoard = HoursActions::returnMinMaxHour();                 //
+        $hoursBoard = HoursActions::returnMinMaxHour();                 //Return the min and max hours
         $board = self::generateBoard($hoursBoard[0], $hoursBoard[1]);   //Automatic range
         $schedules = self::buildPosibilities($board, 0, array());
         return $schedules;
-        //var_dump($schedules);
     }
 
     /**
@@ -219,7 +218,7 @@ class ScheduleActions
     }
 
     /**
-     * Funtion to avoid repeated schedules
+     * Function to avoid repeated schedules
      * @param $board            Builded board
      * @param $boardToSchedule  To verify if the schedule is not repeated
      * @return bool
