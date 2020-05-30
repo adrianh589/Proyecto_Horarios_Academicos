@@ -20,7 +20,7 @@ class ScheduleDB
      */
     public static function buildSubjects(array $subjectsPOST): void
     {
-        //SubjectActions::destroySession("subjects");//Destroy session if exists
+        SubjectActions::destroySession("subjects");//Destroy session if exists
         try {
             $connection = Database::getConnection();//Connect to data base
 
