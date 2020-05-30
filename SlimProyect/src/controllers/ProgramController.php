@@ -36,7 +36,7 @@ class ProgramController
     public static function getByPeriod($idPeriod)
     {
         $programs = ProgramDB::getByPeriod($idPeriod);//Controller action logic
-        require_once '../src/views/program/getByProgram.php';//Send to view
+        require_once '../src/views/program/getByPeriod.php';//Send to view
         return $result;
     }
 
