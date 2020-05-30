@@ -13,9 +13,9 @@ class ScheduleController {
      * Function to generate all academics schedules
      * @return array
      */
-    public static function generateAcademicSchedules()
+    public static function generateAcademicSchedules($parseBody)
     {
-        $schedules = ScheduleActions::generateAcademicSchedules();//Controller action logic
+        $schedules = ScheduleActions::generateAcademicSchedules($parseBody);//Controller action logic
         require_once '../src/views/schedule/generateAcademicSchedules.php';//Send to view
         return $schedules;//Send result to route
     }

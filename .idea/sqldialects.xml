@@ -5,6 +5,7 @@
     <file url="file://$PROJECT_DIR$/SlimProyect/src/models/modelsDB/NrcDB.php" dialect="MariaDB" />
     <file url="file://$PROJECT_DIR$/SlimProyect/src/models/modelsDB/PeriodDB.php" dialect="MariaDB" />
     <file url="file://$PROJECT_DIR$/SlimProyect/src/models/modelsDB/ProgramDB.php" dialect="MariaDB" />
+    <file url="file://$PROJECT_DIR$/SlimProyect/src/models/modelsDB/ScheduleDB.php" dialect="MariaDB" />
     <file url="file://$PROJECT_DIR$/SlimProyect/src/models/modelsDB/SubjectDB.php" dialect="MariaDB" />
     <file url="file://$PROJECT_DIR$/SlimProyect/src/models/modelsDB/WorkdayDB.php" dialect="MariaDB" />
     <file url="file://$PROJECT_DIR$/bd_horarios.sql" dialect="MariaDB" />

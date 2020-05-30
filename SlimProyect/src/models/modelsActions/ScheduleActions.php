@@ -3,6 +3,7 @@
 use Proyect\src\models\DayModel;
 use Proyect\src\models\modelsActions\HoursActions;
 use Proyect\src\models\modelsActions\SubjectActions;
+use Proyect\src\models\modelsDB\ScheduleDB;
 use Proyect\src\models\SubjectModel;
 
 /**
@@ -13,11 +14,11 @@ use Proyect\src\models\SubjectModel;
 class ScheduleActions
 {
 
-    public static function generateAcademicSchedules()
+    public static function generateAcademicSchedules($parseBody)
     {
         SubjectActions::destroySession("schedules");        //Destroy the session if exists
         SubjectActions::createSession("schedules");         //Session to schedule
-        SubjectActions::buildSubjects();                                //Test subjects, load in the $_SESSION['subjects']
+        ScheduleDB::buildSubjects($parseBody);                          //Test subjects in the database, load in the $_SESSION['subjects']
         $hoursBoard = HoursActions::returnMinMaxHour();                 //Return the min and max hours
         $board = self::generateBoard($hoursBoard[0], $hoursBoard[1]);   //Automatic range
         $schedules = self::buildPosibilities($board, 0, array());

@@ -4,22 +4,15 @@ use Proyect\src\controllers\ScheduleController;//Load controller
 use Proyect\src\routers\answer\answer;//Load answer
 
 /**
- * Route to test schedule
- */
-$app->get('/schedules', function ($request, $response, $args) {//Falta
-    $action = ScheduleController::generateAcademicSchedules();
-    return answer::answer($action, $response);
-    session_destroy();  //Unset all sessions
-});
-
-/**
- * Route to
+ * Route to generate academics schedles with all posibilities
  */
 $app->post('/schedules', function ($request, $response, $args) {
-    $parseBody = array("");
-    $action = ScheduleController::generateAcademicSchedules();
+
+    $parseBody = json_decode($request->getBody(), true);
+    //$action = ScheduleController::generateAcademicSchedules($parseBody['schedules']);
+    $action = ScheduleController::generateAcademicSchedules(array("ISUMBG083"));
     return answer::answer($action, $response);
-    session_destroy();  //Unset all sessions
+
 });
 
 
