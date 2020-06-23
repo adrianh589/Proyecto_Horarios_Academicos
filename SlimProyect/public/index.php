@@ -35,6 +35,6 @@
   );
 
 // Automatically load routers files
-  require_once '../src/routers/autoload.php';
+require_once '../src/routers/autoload.php';
 
   $app->run();
